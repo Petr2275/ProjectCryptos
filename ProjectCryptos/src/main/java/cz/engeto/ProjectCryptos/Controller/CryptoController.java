@@ -1,5 +1,7 @@
-package cz.engeto.ProjectCryptos;
+package cz.engeto.ProjectCryptos.Controller;
 
+import cz.engeto.ProjectCryptos.Crypto;
+import cz.engeto.ProjectCryptos.CryptoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

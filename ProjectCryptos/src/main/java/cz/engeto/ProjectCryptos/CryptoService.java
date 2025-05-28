@@ -1,5 +1,6 @@
 package cz.engeto.ProjectCryptos;
 
+
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,8 +18,10 @@ public class CryptoService {
         return portfolio;
     }
 
-    public Optional<Crypto> getCryptoById(Integer id) {
-        return portfolio.stream().filter(c -> c.getId().equals(id)).findFirst();
+    public Optional<cz.engeto.ProjectCryptos.Crypto> getCryptoById(Integer id) {
+        return portfolio.stream()
+                .filter(c -> c.getId().equals(id))
+                .findFirst();
     }
 
     public void addCrypto(Crypto crypto) {
