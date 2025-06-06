@@ -1,7 +1,7 @@
 package cz.engeto.ProjectCryptos.Controller;
 
-import cz.engeto.ProjectCryptos.Crypto;
-import cz.engeto.ProjectCryptos.CryptoService;
+import cz.engeto.ProjectCryptos.Model.Crypto;
+import cz.engeto.ProjectCryptos.Service.CryptoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 public class CryptoController {
 
     @Autowired
-    private CryptoService cryptoService;
+    public CryptoService cryptoService;
 
     @GetMapping
     public List<Crypto> getAllCryptos(@RequestParam(required = false) String sort) {

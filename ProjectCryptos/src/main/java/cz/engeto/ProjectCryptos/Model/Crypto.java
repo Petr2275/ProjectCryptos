@@ -1,16 +1,14 @@
-package cz.engeto.ProjectCryptos;
+package cz.engeto.ProjectCryptos.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
 import lombok.Getter;
 
-
-
-@Data
 @AllArgsConstructor
+@Data
+@Getter
 public class Crypto {
-    @Getter
+
     private Integer id;
     private String name;
     private String symbol;

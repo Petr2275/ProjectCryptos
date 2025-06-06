@@ -1,7 +1,11 @@
-package cz.engeto.ProjectCryptos;
+package cz.engeto.ProjectCryptos.Service;
 
 
+
+import cz.engeto.ProjectCryptos.Model.Crypto;
 import org.springframework.stereotype.Service;
+
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -18,11 +22,14 @@ public class CryptoService {
         return portfolio;
     }
 
-    public Optional<cz.engeto.ProjectCryptos.Crypto> getCryptoById(Integer id) {
-        return portfolio.stream()
-                .filter(c -> c.getId().equals(id))
-                .findFirst();
+    public Optional<Crypto> getCryptoById(Integer id) {
+        for (Crypto crypto : portfolio) {
+            if (!id.equals(crypto.getId())) continue;
+            return Optional.of(crypto);
+        }
+        return Optional.empty();
     }
+
 
     public void addCrypto(Crypto crypto) {
         portfolio.add(crypto);
@@ -41,7 +48,7 @@ public class CryptoService {
         return portfolio.stream().mapToDouble(c -> c.getPrice() * c.getQuantity()).sum();
     }
 
-    private Comparator<Crypto> getComparator(String sortBy) {
+    private Comparator<? super Crypto> getComparator(String sortBy) {
         return switch (sortBy) {
             case "price" -> Comparator.comparing(Crypto::getPrice);
             case "name" -> Comparator.comparing(Crypto::getName);
